@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-background: #FAF7FC;
+    --color-surface: #FFFFFF;
+    --color-lavender-surface: #EEE8F7;
+    --color-lavender-primary: #8B78B8;
+    --color-lavender-deep: #655486;
+    --color-cream: #FFF9F0;
+    --color-sage: #DCE9DE;
+    --color-text-main: #302A38;
+    --color-text-secondary: #797181;
+  }
+
+  body {
+    background-color: #FAF7FC;
+    color: #302A38;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  /* Accessible focus indicators with soft lavender glow */
+  *:focus-visible {
+    outline: 2px solid #8B78B8;
+    outline-offset: 2px;
+  }
+}
+
+/* Custom gentle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF7FC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DDD1EF;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C2AFE3;
+}
+
+/* Breathing animation smooth expansion */
+@keyframes breathingPulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.85;
+    box-shadow: 0 0 30px rgba(139, 120, 184, 0.2);
+  }
+  50% {
+    transform: scale(1.22);
+    opacity: 1;
+    box-shadow: 0 0 60px rgba(139, 120, 184, 0.4);
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.85;
+    box-shadow: 0 0 30px rgba(139, 120, 184, 0.2);
+  }
+}
+
+.breathing-animation-inhale {
+  animation: breatheInCircle 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.breathing-animation-exhale {
+  animation: breatheOutCircle 6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes breatheInCircle {
+  from {
+    transform: scale(0.9);
+    box-shadow: 0 0 20px rgba(139, 120, 184, 0.15);
+  }
+  to {
+    transform: scale(1.25);
+    box-shadow: 0 0 65px rgba(139, 120, 184, 0.45);
+  }
+}
+
+@keyframes breatheOutCircle {
+  from {
+    transform: scale(1.25);
+    box-shadow: 0 0 65px rgba(139, 120, 184, 0.45);
+  }
+  to {
+    transform: scale(0.9);
+    box-shadow: 0 0 20px rgba(139, 120, 184, 0.15);
+  }
+}
